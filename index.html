@@ -1,0 +1,475 @@
+<html> 
+
+    <head>
+
+        <title>
+
+            Housie Number Generator  - By Digeesh Naik
+
+        </title>   
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> 
+
+<body style="background-color:powderblue;">
+
+        
+
+    </head>
+
+    <body>  
+
+        <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+
+          <div class="container">
+
+            <div>
+
+                <h1 style="color:#fff">Housie Number Generator - By Digeesh</h1>
+
+            </div>
+
+          </div>
+
+        </nav> 
+
+        <div class="container" > 
+
+            <div class="bigNumberDisplay well well-lg">
+
+                <span id="numCounter" style="color:#194BB3">0</span>
+
+                <span class="mirage" id="mirageElement">19</span>
+
+                <div class="bingoNumberDesc" id="bingoWords"></div>
+
+            </div>
+
+            <div>
+
+                <input id="btnGenerate" type="button" value="Generate Number"/>
+
+            </div> 
+
+            <br/> 
+
+            <div class="row" > 
+
+                <div class="col-md-3 well well-lg text-left">
+
+                        <ol>
+
+                             <li>Early Five</li>
+                          <input type="text" />
+
+                              <li>First line</li>  
+                     <input type="text" />
+                            <li>Second line</li>
+                          <input type="text" />
+                            <li>Third line</li>
+                         <input type="text" />
+                            <li>Sandwhich</li>
+                         <input type="text" />
+                            <li>Bachpan</li>
+                       <input type="text" />
+                                <li>Buddhapa</li>
+                           <input type="text" />
+
+                            <li> 1st Full Housie</li>
+                                <input type="text" />
+                            <li> 2ndFull Housie</li>
+
+                          <input type="text" />
+
+                          </ol>  
+
+                    <div id="prevNum" >  0   </div>
+
+                </div>
+
+                <div  class="col-md-9"> 
+
+                    <table>
+
+                        <tr> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+
+                        <tr> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>  </tr>
+
+                        <tr> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>  </tr>
+
+                        <tr> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>  </tr>
+
+                        <tr> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>  </tr>
+
+                        <tr> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+
+                        <tr>  <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>  </tr>
+
+                        <tr> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>  </tr>
+
+                        <tr> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>  </tr>
+
+                        <tr> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr> 
+
+                    </table>
+
+                </div>
+
+            </div> 
+
+            <br/> 
+
+        </div>
+
+        <style type="text/css">
+
+        body { padding-top: 70px; }
+
+            .divRules{
+
+                float:left;
+
+                width:20%;
+
+                text-align:left;
+
+                font-size:20px;
+
+            }
+
+            #prevNum{
+
+                font-size:90px;
+
+                color:#0D8930;
+
+            }
+
+            .bingoNumberDesc{
+
+                font-size:0.3em;
+
+                vertical-align: text-top;
+
+            }
+
+           div {
+
+                text-align: center;
+
+            } 
+
+            .bigNumberDisplay {
+
+                font-size: 8em;
+
+            } 
+
+            .numbersTable {
+
+                font-size: 1.6em;
+
+                width:100%
+
+            } 
+
+            table {
+
+                margin-left: auto;
+
+                margin-right: auto;
+
+            } 
+
+            table, tr, td {
+
+                border-collapse: collapse;
+
+                border: solid 1px #999;
+
+            } 
+
+            td {
+
+                min-width: 100px;
+
+                color: #fff;
+
+                font-size: 2em;
+
+            } 
+
+            td.selected {
+
+                color: #f00 ;
+
+            } 
+
+        </style> 
+
+        <script
+
+          src="https://code.jquery.com/jquery-3.2.1.min.js"
+
+          integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+
+          crossorigin="anonymous"></script>
+
+        <script type="text/javascript">
+
+        var bingoNumberWords = ["Top of the house number 1","Kaala dhan","Goodness Me","Knock at the door","Symbol of congress","Super sixer","Colours of rainbow","Big fat lady number 8","Number of planets in solar system number 9","A big fat hen","1 and 1 eleven","One dozen","Unlucky for some lucky for me no. thirteen","Valentine Day","Yet to be kissed","Sweet sixteen","Dancing Queen","Voting age","End of the teens","Blind 20","President salute","Two little ducks","You and me","Two dozen","Silver Jublee Number","Republic Day","Gateway to heaven","Duck and its mate","In your prime","Its middle Age","Time for fun","Mouth Full","All the 3s","Dil mange more","Flirty Husband","Popular Number","Mixed luck","Oversize","Watch your waistline","Naughty 40","Life's begun at 41","Quit India Movement","Pain in the knee","All the fours","Halfway there","Up to tricks","Year of Independence","Four dozen","Rise and shine","Half a century, Golden Jublee","Charity begins at 51","Pack of cards","Pack with a joker","Pack with two jokers","All the fives","Pick up sticks","Mutiny Year","Time to retire","Just retired","Five dozen","Bakers bun","Click the two","Click the three","Catch the chor","Old age pension","Chakke pe chakka","Made in heaven","Saving grace","Ulta Pulta","Lucky blind","Lucky bachelor","Lucky couple","A crutch and a flea","Lucky chor","Diamond Jublee","Lucky six","Two hockey sticks","Heaven's gate","lucky nine","Gandhi's breakfast","Corner shot","Last of the two","India wins Cricket World Cup","Last of the chors","Grandma","Last six","Grandpa","Two fat ladies","All but one","Top of the house"];
+
+            (function($){
+
+                $.fn.extend({
+
+                    numAnim: function(options) {
+
+                        if ( ! this.length)
+
+                            return false;
+
+
+
+                        this.defaults = {
+
+                            endAt: 2560,
+
+                            numClass: 'autogen-num',
+
+                            duration: 2,   // seconds
+
+                            interval: 90  // ms
+
+                        };
+
+                        var settings = $.extend({}, this.defaults, options);
+
+
+
+                        var $num = $('<span/>', {
+
+                            'class': settings.numClass 
+
+                        });
+
+
+
+                        return this.each(function() {
+
+                            var $this = $(this);
+
+
+
+                            // Wrap each number in a tag.
+
+                            var frag = document.createDocumentFragment(),
+
+                                numLen = settings.endAt.toString().length;
+
+                            for (x = 0; x < numLen; x++) {
+
+                                var rand_num = Math.floor( Math.random() * 10 );
+
+                                frag.appendChild( $num.clone().text(rand_num)[0] )
+
+                            }
+
+                            $this.empty().append(frag);
+
+
+
+                            var get_next_num = function(num) {
+
+                                ++num;
+
+                                if (num > 9) return 0;
+
+                                return num;
+
+                            };
+
+
+
+                            // Iterate each number.
+
+                            $this.find('.' + settings.numClass).each(function() {
+
+                                var $num = $(this),
+
+                                    num = parseInt( $num.text() );
+
+
+
+                                var interval = setInterval( function() {
+
+                                    num = get_next_num(num);
+
+                                    $num.text(num);
+
+                                }, settings.interval);
+
+
+
+                                setTimeout( function() {
+
+                                    clearInterval(interval);
+
+                                }, settings.duration * 1000 - settings.interval);
+
+                            });
+
+                            
+
+                            setTimeout( function() {
+
+                                $this.text( settings.endAt.toString() );
+
+                                $("#mirageElement").css("display","none");
+
+                                $('#numCounter').css("display","");  
+
+
+
+                            }, settings.duration * 1000);
+
+                        });
+
+                    }
+
+                });
+
+            })(jQuery);
+
+
+
+                $(function() { 
+
+                var bingo = {
+
+                    selectedNumbers: [],
+
+                    generateRandom: function() {
+
+                        var min = 1;
+
+                        var max = 90;
+
+                        var random = Math.floor(Math.random() * (max - min + 1)) + min;
+
+                        return random;
+
+                    },
+
+                    generateNextRandom: function() {
+
+                        if (bingo.selectedNumbers.length > 89) {
+
+                            alert("All numbers Exhausted");
+
+                            return 0;
+
+                        }
+
+                        var random = bingo.generateRandom();
+
+                        while ($.inArray(random, bingo.selectedNumbers) > -1) {
+
+                            random = bingo.generateRandom();
+
+                        }
+
+                        bingo.selectedNumbers.push(random);
+
+                        return random;
+
+                    }
+
+                };
+
+                $("#mirageElement").css("display","none");
+
+                $('td').each(function() {
+
+                    var concatClass = this.cellIndex + "" + this.parentNode.rowIndex;
+
+                    var numberString = parseInt(concatClass, 10).toString();
+
+                    $(this).addClass("cell" + numberString).text(numberString);
+
+                });
+
+                var random = 0;
+
+                var animDuration = 2;
+
+                $('#btnGenerate').click(function() {    
+
+                    $('#prevNum').text($('#numCounter').text());
+
+                    random = bingo.generateNextRandom().toString();
+
+                    $("#numCounter").css("display","none");
+
+                    $("#mirageElement").css("display","");
+
+                    $('#numCounter').text(random);
+
+                    //$('td.cell' + random).addClass('selected');
+
+                    $("#mirageElement").numAnim({
+
+                        endAt: 90,
+
+                        duration: animDuration
+
+                    });
+
+                    setTimeout(function(){ 
+
+                        if(bingoNumberWords[random-1]){
+
+                            $("#bingoWords").text(bingoNumberWords[random-1]);
+
+                        }else{
+
+                            $("#bingoWords").text("");
+
+                        }
+
+                        $('td.cell' + random).addClass('selected');
+
+                        $("#numCounter").animate({zoom: '200%'}, "slow");
+
+                        $("#numCounter").animate({zoom: '100%'}, "slow");
+
+
+
+                        }, animDuration*1000);
+
+
+
+                });
+
+                window.onbeforeunload = function(e) {
+
+                    e = e || window.event;
+
+                    var returnString = 'Are you sure?';
+
+                    if (e) {
+
+                        e.returnValue = returnString;
+
+                    }
+
+                    return returnString;
+
+                };
+
+            });
+
+        </script> 
+
+    </body>
+
+</html>
